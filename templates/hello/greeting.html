@@ -1,45 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-    <title>问候页面</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>问候页面 - Hello Django App</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
             background-color: #f5f5f5;
+            min-height: 100vh;
         }
         .container {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 50px auto;
             background-color: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
         }
         h1 {
-            color: #333;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2em;
         }
         .greeting {
-            font-size: 24px;
-            margin: 20px 0;
-            color: #2c3e50;
+            font-size: 1.8em;
+            margin: 30px 0;
+            color: #007bff;
+            padding: 20px;
+            background-color: #e8f4fd;
+            border-radius: 8px;
+            border-left: 5px solid #007bff;
         }
-        a {
+        .nav-links {
+            margin-top: 40px;
+        }
+        .nav-links a {
             display: inline-block;
-            color: #3498db;
+            margin: 0 15px;
+            padding: 12px 25px;
+            background-color: #007bff;
+            color: white;
             text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-weight: 500;
         }
-        a:hover {
-            text-decoration: underline;
+        .nav-links a:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,123,255,0.3);
+        }
+        @media (max-width: 600px) {
+            .container {
+                margin: 20px auto;
+                padding: 20px;
+            }
+            .nav-links a {
+                display: block;
+                margin: 10px 0;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>个性化问候</h1>
-        <div class="greeting">你好，{{ name }}！</div>
-        <a href="{% url 'hello_world' %}">返回首页</a>
+        <h1>👋 个性化问候</h1>
+        <div class="greeting">你好，{{ name }}！欢迎使用我们的Django应用！</div>
+        <div class="nav-links">
+            <a href="{% url 'hello_world' %}">🏠 返回首页</a>
+            <a href="{% url 'hello_name' %}">📝 再次问候</a>
+        </div>
     </div>
 </body>
 </html>

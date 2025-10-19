@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .message {
+            font-size: 24px;
+            margin: 20px 0;
+            color: #2c3e50;
+        }
+        .links {
+            margin-top: 20px;
+        }
+        a {
+            display: inline-block;
+            margin-right: 10px;
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hello App</h1>
+        <div class="message">{{ message }}</div>
+        <div class="links">
+            <a href="{% url 'hello_world' %}">问候世界</a>
+            <a href="{% url 'hello_name' name='朋友' %}">问候朋友</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,52 +1,76 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-    <title>Hello App</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #333;
-        }
-        .message {
-            font-size: 24px;
-            margin: 20px 0;
-            color: #2c3e50;
-        }
-        .links {
-            margin-top: 20px;
-        }
-        a {
-            display: inline-block;
-            margin-right: 10px;
-            color: #3498db;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Django App - 首页</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <div class="container">
-        <h1>Hello App</h1>
-        <div class="message">{{ message }}</div>
-        <div class="links">
-            <a href="{% url 'hello_world' %}">问候世界</a>
-            <a href="{% url 'hello_name' name='朋友' %}">问候朋友</a>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="{% url 'hello_world' %}" class="navbar-brand">
+                🚀 Hello Django App
+            </a>
+            <ul class="navbar-nav">
+                <li><a href="{% url 'hello_world' %}" class="nav-link">🏠 首页</a></li>
+                <li><a href="{% url 'hello_name' %}" class="nav-link">👋 个性化问候</a></li>
+                <li><a href="/admin/" class="nav-link">⚙️ 管理后台</a></li>
+            </ul>
         </div>
-    </div>
+    </nav>
+
+    <!-- 主内容 -->
+    <main class="container">
+        <div class="card text-center">
+            <div class="card-header">
+                <h1 class="card-title">欢迎使用Hello Django应用</h1>
+                <p class="card-subtitle">一个简单而强大的Django示例应用</p>
+            </div>
+            
+            <div class="message">
+                <h2 style="color: var(--primary-color); font-size: 2em; margin: 2rem 0;">
+                    {{ message }}
+                </h2>
+            </div>
+
+            <div class="nav-links">
+                <a href="{% url 'hello_name' %}" class="btn btn-primary">
+                    📝 开始个性化问候
+                </a>
+                <a href="/admin/" class="btn btn-secondary">
+                    ⚙️ 访问管理后台
+                </a>
+            </div>
+        </div>
+
+        <!-- 功能特性展示 -->
+        <div class="card">
+            <h2 class="card-title text-center">✨ 功能特性</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                <div style="text-align: center; padding: 1.5rem; background: var(--light-color); border-radius: var(--border-radius);">
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">🌐 响应式设计</h3>
+                    <p>完美适配各种设备尺寸，提供优秀的移动端体验</p>
+                </div>
+                <div style="text-align: center; padding: 1.5rem; background: var(--light-color); border-radius: var(--border-radius);">
+                    <h3 style="color: var(--success-color); margin-bottom: 1rem;">⚡ 现代化UI</h3>
+                    <p>采用现代CSS设计，界面美观且交互流畅</p>
+                </div>
+                <div style="text-align: center; padding: 1.5rem; background: var(--light-color); border-radius: var(--border-radius);">
+                    <h3 style="color: var(--info-color); margin-bottom: 1rem;">🔧 Django驱动</h3>
+                    <p>基于强大的Django框架，稳定可靠且易于扩展</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer style="background: var(--dark-color); color: var(--white-color); padding: 2rem 0; margin-top: 3rem;">
+        <div class="container text-center">
+            <p>&copy; 2024 Hello Django App. 基于Django框架构建。</p>
+        </div>
+    </footer>
 </body>
 </html>
